@@ -14,27 +14,27 @@
             position:relative;
         }
 
-        /* Fondo de playa en movimiento */
-        .fondo-playa{
+        /* Fondo degradado moderno */
+        .fondo{
             position:absolute;
             top:0;left:0;
             width:100%;height:100%;
             z-index:-3;
-            background-image:url('playa.jpg');
-            background-size:cover;
-            background-position:center;
-            animation:moverFondo 18s ease-in-out infinite alternate;
+            background:linear-gradient(135deg,#ff416c,#ff4b2b,#ffd700,#00d4ff,#7b2cbf);
+            background-size:300% 300%;
+            animation:fondoAnimado 12s ease infinite;
         }
-        @keyframes moverFondo{
-            0%{transform:scale(1) translate(0,0)}
-            100%{transform:scale(1.08) translate(10px,8px)}
+        @keyframes fondoAnimado{
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
         }
 
         .sombra{
             position:absolute;
             top:0;left:0;
             width:100%;height:100%;
-            background:rgba(0,0,0,.55);
+            background:rgba(0,0,0,.35);
             z-index:-2;
         }
 
@@ -48,61 +48,117 @@
             text-align:center;
         }
 
-        /* Círculo RC */
-        .circulo{
-            width:200px;height:200px;
-            border-radius:50%;
-            background:#fff;
-            border:4px solid #ffd700;
-            color:#002f5f;
-            font-size:60px;
+        /* Logo moderno sin círculo blanco */
+        .logo{
+            font-size:72px;
             font-weight:900;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            margin-bottom:20px;
-            box-shadow:0 8px 25px rgba(0,0,0,.3);
+            letter-spacing:4px;
+            background:linear-gradient(90deg,#ffd700,#ffffff,#ffd700);
+            -webkit-background-clip:text;
+            background-clip:text;
+            color:transparent;
+            text-shadow:0 0 30px rgba(255,215,0,.6);
+            margin-bottom:10px;
         }
 
-        /* Imagen del estudio */
         .imagen-estudio{
             width:180px;
             height:180px;
-            border-radius:50%;
+            border-radius:24px;
             border:4px solid #ffd700;
             object-fit:cover;
             margin-bottom:20px;
-            box-shadow:0 8px 25px rgba(0,0,0,.3);
+            box-shadow:0 8px 25px rgba(0,0,0,.35);
         }
 
-        h1{font-size:48px;margin-bottom:10px;text-shadow:0 2px 8px rgba(0,0,0,.5)}
-        .frase{font-size:22px;color:#ffd700;margin-bottom:30px}
+        h1{
+            font-size:52px;
+            margin-bottom:8px;
+            text-shadow:0 2px 10px rgba(0,0,0,.5);
+        }
 
+        .frase{
+            font-size:24px;
+            color:#ffd700;
+            margin-bottom:30px;
+            font-weight:600;
+        }
+
+        /* Reproductor moderno con ondas de sonido */
         .reproductor{
-            background:#fff;
+            background:linear-gradient(135deg,#ffffff,#f7f7f7);
             color:#002f5f;
-            padding:30px;
-            border-radius:24px;
+            padding:35px;
+            border-radius:28px;
             width:100%;
-            max-width:500px;
-            box-shadow:0 10px 30px rgba(0,0,0,.3);
+            max-width:520px;
+            box-shadow:0 10px 35px rgba(0,0,0,.4);
+            position:relative;
+            overflow:hidden;
         }
-        .reproductor audio{width:100%;margin-bottom:12px;display:block}
-        .reproductor p{color:#555;font-size:15px}
+
+        .reproductor audio{
+            width:100%;
+            margin-bottom:15px;
+            display:block;
+        }
+
+        .reproductor p{
+            color:#555;
+            font-size:16px;
+        }
+
+        /* Ondas de sonido animadas */
+        .ondas{
+            position:absolute;
+            bottom:0;
+            left:0;
+            width:100%;
+            height:50px;
+            display:flex;
+            align-items:flex-end;
+            justify-content:center;
+            gap:6px;
+            pointer-events:none;
+        }
+
+        .onda{
+            width:8px;
+            height:20px;
+            background:linear-gradient(180deg,#ff416c,#ffd700,#00d4ff);
+            border-radius:10px 10px 0 0;
+            animation:ondas 1s ease-in-out infinite;
+        }
+
+        .onda:nth-child(1){animation-delay:0s}
+        .onda:nth-child(2){animation-delay:0.1s}
+        .onda:nth-child(3){animation-delay:0.2s}
+        .onda:nth-child(4){animation-delay:0.3s}
+        .onda:nth-child(5){animation-delay:0.4s}
+        .onda:nth-child(6){animation-delay:0.5s}
+        .onda:nth-child(7){animation-delay:0.6s}
+
+        @keyframes ondas{
+            0%{height:15px}
+            50%{height:35px}
+            100%{height:15px}
+        }
 
         @media(max-width:600px){
-            .circulo{width:160px;height:160px;font-size:45px}
+            .logo{font-size:52px}
             .imagen-estudio{width:150px;height:150px}
-            h1{font-size:32px}
+            h1{font-size:36px}
+            .frase{font-size:20px}
+            .reproductor{padding:25px}
         }
     </style>
 </head>
 <body>
-    <div class="fondo-playa"></div>
+    <div class="fondo"></div>
     <div class="sombra"></div>
 
     <div class="centro">
-        <div class="circulo">RC</div>
+        <div class="logo">RC</div>
         <img src="estudio.jpg" class="imagen-estudio" alt="Estudio Radio Cumanda">
         <h1>RADIO CUMANDA</h1>
         <p class="frase">Uniendo familias</p>
@@ -111,8 +167,18 @@
             <audio controls preload="none">
                 <source src="https://stream.zeno.fm/yjbulgm54cwtv" type="audio/mpeg">
                 Tu navegador no soporta la reproducción de audio.
-            
+            </audio>
             <p>🔊 Pulsa ▶ para escuchar en vivo</p>
+
+            <div class="ondas">
+                <div class="onda"></div>
+                <div class="onda"></div>
+                <div class="onda"></div>
+                <div class="onda"></div>
+                <div class="onda"></div>
+                <div class="onda"></div>
+                <div class="onda"></div>
+            </div>
         </div>
     </div>
 </body>
