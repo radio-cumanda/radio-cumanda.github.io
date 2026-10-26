@@ -28,28 +28,28 @@
             width: 100%;
             height: 100%;
             z-index: -3;
-            background-image: url('https://i.imgur.com/your-beach-image.jpg');
+            background-image: url('https://radio-cumanda.github.io/playa.jpg');
             background-size: cover;
             background-position: center;
-            animation: moverFondo 20s ease-in-out infinite alternate;
+            animation: moverFondo 18s ease-in-out infinite alternate;
         }
 
         @keyframes moverFondo {
             0% {
                 transform: scale(1) translate(0, 0);
-                filter: brightness(1) contrast(1);
+                filter: brightness(1);
             }
             50% {
-                transform: scale(1.05) translate(-10px, -10px);
-                filter: brightness(1.1) contrast(1.05);
+                transform: scale(1.06) translate(-12px, -8px);
+                filter: brightness(1.12);
             }
             100% {
-                transform: scale(1.08) translate(10px, 10px);
-                filter: brightness(1) contrast(1);
+                transform: scale(1.06) translate(12px, 8px);
+                filter: brightness(1);
             }
         }
 
-        /* Capa oscura para que se lea bien el texto */
+        /* Capa oscura para que el texto se lea bien */
         .capa-oscura {
             position: absolute;
             top: 0;
@@ -57,7 +57,7 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0, 0, 0, 0.65);
         }
 
         .contenedor {
@@ -89,7 +89,7 @@
             margin-bottom: 25px;
         }
 
-        /* Imagen principal */
+        /* Imagen principal del estudio radio */
         .imagen-principal {
             width: 180px;
             height: 180px;
@@ -119,6 +119,7 @@
             color: #002f5f;
             width: 100%;
             max-width: 520px;
+            border: 40px;
             border-radius: 24px;
             padding: 30px;
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
@@ -129,7 +130,7 @@
             margin-bottom: 15px;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 600) {
             .circulo {
                 width: 180px;
                 height: 180px;
@@ -154,9 +155,9 @@
     <div class="contenedor">
         <div class="circulo">RC</div>
 
-        <img src="https://i.imgur.com/your-radio-studio-image.jpg" class="imagen-principal" alt="Radio Cumanda">
+        <img src="https://radio-cumanda.github.io/radio.jpg" class="imagen-principal" alt="Radio Cumanda">
 
-        <h1>RADIO CUMANDA</h1>
+        <h1>RADIO CUMANDA</bbox>
         <p class="eslogan">Uniendo familias</p>
 
         <div class="reproductor">
