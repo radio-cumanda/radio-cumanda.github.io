@@ -3,169 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <title>RADIO CUMANDA</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:'Segoe UI',sans-serif;
+            color:#fff;
+            min-height:100vh;
+            overflow:hidden;
+            position:relative;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: white;
-            min-height: 100vh;
-            overflow: hidden;
-            position: relative;
+        /* Fondo en movimiento */
+        .fondo{
+            position:absolute;
+            top:0;left:0;
+            width:100%;height:100%;
+            z-index:-3;
+            background:linear-gradient(135deg,#0077be,#00a86b,#ffd700);
+            background-size:400% 400%;
+            animation:fondoMovido 15s ease infinite;
+        }
+        @keyframes fondoMovido{
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
         }
 
-        /* Fondo de playa en movimiento */
-        .fondo-playa {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -3;
-            background-image: url('https://radio-cumanda.github.io/playa.jpg');
-            background-size: cover;
-            background-position: center;
-            animation: moverFondo 18s ease-in-out infinite alternate;
+        .sombra{
+            position:absolute;
+            top:0;left:0;
+            width:100%;height:100%;
+            background:rgba(0,0,0,.5);
+            z-index:-2;
         }
 
-        @keyframes moverFondo {
-            0% {
-                transform: scale(1) translate(0, 0);
-                filter: brightness(1);
-            }
-            50% {
-                transform: scale(1.06) translate(-12px, -8px);
-                filter: brightness(1.12);
-            }
-            100% {
-                transform: scale(1.06) translate(12px, 8px);
-                filter: brightness(1);
-            }
+        .centro{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            min-height:100vh;
+            padding:20px;
+            text-align:center;
         }
 
-        /* Capa oscura para que el texto se lea bien */
-        .capa-oscura {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: rgba(0, 0, 0, 0.65);
+        .circulo{
+            width:200px;height:200px;
+            border-radius:50%;
+            background:#fff;
+            border:4px solid #ffd700;
+            color:#002f5f;
+            font-size:60px;
+            font-weight:900;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-bottom:20px;
+            box-shadow:0 8px 25px rgba(0,0,0,.3);
         }
 
-        .contenedor {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-            text-align: center;
+        h1{font-size:48px;margin-bottom:10px}
+        .frase{font-size:22px;color:#ffd700;margin-bottom:30px}
+
+        .radio{
+            background:#fff;
+            color:#002f5f;
+            padding:30px;
+            border-radius:24px;
+            width:100%;
+            max-width:500px;
+            box-shadow:0 10px 30px rgba(0,0,0,.3);
         }
+        .radio audio{width:100%;margin-bottom:10px}
+        .radio p{color:#555}
 
-        /* Círculo RC */
-        .circulo {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            background: white;
-            border: 4px solid #ffcd00;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            font-weight: 900;
-            color: #002f5f;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            margin-bottom: 25px;
-        }
-
-        /* Imagen principal del estudio radio */
-        .imagen-principal {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid #ffcd00;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            margin-bottom: 25px;
-        }
-
-        h1 {
-            font-size: 52px;
-            font-weight: 900;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-        }
-
-        .eslogan {
-            font-size: 22px;
-            color: #ffcd00;
-            margin-bottom: 35px;
-        }
-
-        .reproductor {
-            background: rgba(255, 255, 255, 0.95);
-            color: #002f5f;
-            width: 100%;
-            max-width: 520px;
-            border: 40px;
-            border-radius: 24px;
-            padding: 30px;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
-        }
-
-        .reproductor audio {
-            width: 100%;
-            margin-bottom: 15px;
-        }
-
-        @media (max-width: 600) {
-            .circulo {
-                width: 180px;
-                height: 180px;
-                font-size: 38px;
-            }
-
-            .imagen-principal {
-                width: 150px;
-                height: 150px;
-            }
-
-            h1 {
-                font-size: 40px;
-            }
+        @media(max-width:600px){
+            .circulo{width:160px;height:160px;font-size:45px}
+            h1{font-size:32px}
         }
     </style>
 </head>
 <body>
-    <div class="fondo-playa"></div>
-    <div class="capa-oscura"></div>
+    <div class="fondo"></div>
+    <div class="sombra"></div>
 
-    <div class="contenedor">
+    <div class="centro">
         <div class="circulo">RC</div>
+        <h1>RADIO CUMANDA</h1>
+        <p class="frase">Uniendo familias</p>
 
-        <img src="https://radio-cumanda.github.io/radio.jpg" class="imagen-principal" alt="Radio Cumanda">
-
-        <h1>RADIO CUMANDA</bbox>
-        <p class="eslogan">Uniendo familias</p>
-
-        <div class="reproductor">
+        <div class="radio">
             <audio controls autoplay preload="none">
                 <source src="https://stream.zeno.fm/yjbulgm54cwtv" type="audio/mpeg">
-                Tu navegador no soporta la reproducción de audio.
-            </audio>
-            <p>✅ Transmisión en vivo</p>
+                Tu navegador no soporta audio.
+            
+            <p>🔊 Escúchanos en vivo</p>
         </div>
     </div>
 </body>
