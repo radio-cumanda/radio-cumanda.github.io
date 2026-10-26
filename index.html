@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RADIO CUMANDA</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f, #2c2c2c);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .contenedor {
+            background: rgba(0,0,0,0.4);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        }
+        h1 { font-size: 2.2rem; margin-bottom: 0.5rem; color: #ffd700; letter-spacing: 2px; }
+        .subtitulo { font-size: 1.2rem; margin-bottom: 2rem; color: #cccccc; }
+        .etiqueta-escuchando {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #90ee90;
+        }
+        audio {
+            width: 100%;
+            margin: 1rem 0 2rem;
+            border-radius: 8px;
+        }
+        .info { margin-top: 1.5rem; font-size: 0.9rem; color: #888888; }
+        .estado {
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>📻 RADIO CUMANDA</h1>
+        <p class="subtitulo">Manantial de Vida</p>
+        
+        <p class="etiqueta-escuchando">🔊 Estás escuchando...</p>
+
+        <audio controls autoplay preload="none">
+            <source src="https://stream.zeno.fm/yjbulgm54cwtv" type="audio/mpeg">
+            Tu navegador no soporta la reproducción de audio.
+        
+
+        <p class="estado">✅ Transmisión en vivo</p>
+        <p class="info">100% Gratis — GitHub Pages</p>
+    </div>
+</body>
+</html>
