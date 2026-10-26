@@ -3,74 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>RADIO CUMANDA</title>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{
-            font-family:'Segoe UI',sans-serif;
-            color:#fff;
-            min-height:100vh;
-            overflow:hidden;
-            position:relative;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .fondo-animado{
-            position:absolute;
-            top:0;left:0;
-            width:100%;height:100%;
-            z-index:-3;
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .fondo-animado {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
             background:
-                radial-gradient(circle at 10% 10%, rgba(255,205,0,.9) 0%, transparent 45%),
-                radial-gradient(circle at 90% 15%, rgba(0,174,239,.9) 0%, transparent 45%),
-                radial-gradient(circle at 50% 85%, rgba(237,28,36,.7) 0%, transparent 50%),
-                linear-gradient(180deg,#001428 0%,#002f5f 50%,#001a33 100%);
+                radial-gradient(circle at 10% 10%, rgba(255, 205, 0, 0.95) 0%, transparent 45%),
+                radial-gradient(circle at 90% 15%, rgba(0, 174, 239, 0.95) 0%, transparent 45%),
+                radial-gradient(circle at 50% 85%, rgba(237, 28, 36, 0.8) 0%, transparent 50%),
+                linear-gradient(180deg, #001428 0%, #002f5f 50%, #001a33 100%);
             animation: pulso 6s ease-in-out infinite alternate;
         }
-        @keyframes pulso{
-            0%{transform:scale(1) translate(0,0);filter:brightness(1)}
-            50%{transform:scale(1.08) translate(-8px,-8px);filter:brightness(1.15)}
-            100%{transform:scale(1.04) translate(8px,8px);filter:brightness(1)}
+
+        @keyframes pulso {
+            0% {
+                transform: scale(1) translate(0, 0);
+                filter: brightness(1);
+            }
+            50% {
+                transform: scale(1.08) translate(-8px, -8px);
+                filter: brightness(1.15);
+            }
+            100% {
+                transform: scale(1.04) translate(8px, 8px);
+                filter: brightness(1);
+            }
         }
-        .ola{
-            position:absolute;
-            bottom:0;left:0;
-            width:200%;height:220px;
-            background:url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z" fill="%23ffcd00" opacity=".9"/></svg>');
-            background-size:50% 100%;
+
+        .ola {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 220px;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z" fill="%23ffcd00" opacity="0.9"/></svg>');
+            background-size: 50% 100%;
             animation: moverOla 5s linear infinite;
-            z-index:-1;
+            z-index: -1;
         }
-        .ola:nth-child(3){bottom:30px;opacity:.6;animation-duration:7s;background:url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C150,0 350,120 600,60 C850,0 1050,120 1200,60 L1200,120 L0,120 Z" fill="%2300aeef" opacity=".7"/></svg>')}
-        .ola:nth-child(4){bottom:60px;opacity:.5;animation-duration:9s;background:url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C150,80 350,40 600,60 C850,80 1050,40 1200,60 L1200,120 L0,120 Z" fill="%23ed1c24" opacity=".6"/></svg>')}
-        @keyframes moverOla{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-        .contenedor{
-            position:relative;z-index:1;
-            display:flex;flex-direction:column;
-            align-items:center;justify-content:center;
-            min-height:100vh;padding:20px;text-align:center;
+
+        .ola:nth-child(3) {
+            bottom: 30px;
+            opacity: 0.6;
+            animation-duration: 7s;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C150,0 350,120 600,60 C850,0 1050,120 1200,60 L1200,120 L0,120 Z" fill="%2300aeef" opacity="0.7"/></svg>');
         }
-        .circulo{
-            width:220px;height:220px;border-radius:50%;
-            background:#fff;border:4px solid #ffcd00;
-            display:flex;align-items:center;justify-content:center;
-            font-size:48px;font-weight:900;color:#002f5f;
-            box-shadow:0 10px 30px rgba(0,0,0,.4);margin-bottom:25px;
+
+        .ola:nth-child(4) {
+            bottom: 60px;
+            opacity: 0.5;
+            animation-duration: 9s;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C150,80 350,40 600,60 C850,80 1050,40 1200,60 L1200,120 L0,120 Z" fill="%23ed1c24" opacity="0.6"/></svg>');
         }
-        h1{font-size:52px;font-weight:900;letter-spacing:3px;margin-bottom:10px;text-shadow:0 4px 15px rgba(0,0,0,.6)}
-        .eslogan{font-size:22px;color:#ffcd00;margin-bottom:35px}
-        .reproductor{
-            background:rgba(255,255,255,.95);color:#002f5f;
-            width:100%;max-width:520px;border-radius:24px;
-            padding:30px;box-shadow:0 12px 35px rgba(0,0,0,.4);
+
+        @keyframes moverOla {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
-        .reproductor audio{width:100%;margin-bottom:15px}
-        .etiquetas{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-        .etq{
-            background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
-            border-radius:14px;padding:12px 18px;backdrop-filter:blur(10px);
+
+        .contenedor {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
         }
-        @media(max-width:600px){
-            .circulo{width:180px;height:180px;font-size:38px}
-            h1{font-size:40px}
+
+        .circulo {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid #ffcd00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: 900;
+            color: #002f5f;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 52px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .eslogan {
+            font-size: 22px;
+            color: #ffcd00;
+            margin-bottom: 35px;
+        }
+
+        .reproductor {
+            background: rgba(255, 255, 255, 0.95);
+            color: #002f5f;
+            width: 100%;
+            max-width: 520px;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .reproductor audio {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .etiquetas {
+            margin-top: 30px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .etq {
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 14px;
+            padding: 12px 18px;
+            backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 600px) {
+            .circulo {
+                width: 180px;
+                height: 180px;
+                font-size: 38px;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
         }
     </style>
 </head>
@@ -84,13 +179,15 @@
         <div class="circulo">RC</div>
         <h1>RADIO CUMANDA</h1>
         <p class="eslogan">Uniendo familias</p>
+
         <div class="reproductor">
             <audio controls autoplay preload="none">
                 <source src="https://stream.zeno.fm/yjbulgm54cwtv" type="audio/mpeg">
-                Tu navegador no soporta audio.
-            
+                Tu navegador no soporta la reproducción de audio.
+            </audio>
             <p>✅ Transmisión en vivo — Desde Ecuador</p>
         </div>
+
         <div class="etiquetas">
             <span class="etq">🟡🔴🔵 Ecuador</span>
             <span class="etq">🌄 Andes</span>
