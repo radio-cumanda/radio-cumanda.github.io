@@ -20,58 +20,44 @@
             position: relative;
         }
 
-        /* Fondo animado con colores de Ecuador 🟡🔵🔴 */
-        .fondo {
+        /* Fondo de playa en movimiento */
+        .fondo-playa {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -3;
-            background:
-                radial-gradient(circle at 10% 10%, rgba(255, 205, 0, 0.95) 0%, transparent 45%),
-                radial-gradient(circle at 90% 15%, rgba(0, 174, 239, 0.95) 0%, transparent 45%),
-                radial-gradient(circle at 50% 85%, rgba(237, 28, 36, 0.8) 0%, transparent 50%),
-                linear-gradient(180deg, #001428 0%, #002f5f 50%, #001a33 100%);
-            animation: pulso 6s ease-in-out infinite alternate;
+            background-image: url('https://i.imgur.com/your-beach-image.jpg');
+            background-size: cover;
+            background-position: center;
+            animation: moverFondo 20s ease-in-out infinite alternate;
         }
 
-        @keyframes pulso {
-            0% { transform: scale(1) translate(0, 0); filter: brightness(1); }
-            50% { transform: scale(1.08) translate(-8px, -8px); filter: brightness(1.15); }
-            100% { transform: scale(1.04) translate(8px, 8px); filter: brightness(1); }
+        @keyframes moverFondo {
+            0% {
+                transform: scale(1) translate(0, 0);
+                filter: brightness(1) contrast(1);
+            }
+            50% {
+                transform: scale(1.05) translate(-10px, -10px);
+                filter: brightness(1.1) contrast(1.05);
+            }
+            100% {
+                transform: scale(1.08) translate(10px, 10px);
+                filter: brightness(1) contrast(1);
+            }
         }
 
-        /* Ondas en movimiento */
-        .onda {
+        /* Capa oscura para que se lea bien el texto */
+        .capa-oscura {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
-            width: 200%;
-            height: 220px;
-            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z" fill="%23ffcd00" opacity="0.9"/></svg>');
-            background-size: 50% 100%;
-            animation: moverOla 5s linear infinite;
-            z-index: -1;
-        }
-
-        .onda:nth-child(3) {
-            bottom: 30px;
-            opacity: 0.6;
-            animation-duration: 7s;
-            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C150,0 350,120 600,60 C850,0 1050,120 1200,60 L1200,120 L0,120 Z" fill="%2300aeef" opacity="0.7"/></svg>');
-        }
-
-        .onda:nth-child(4) {
-            bottom: 60px;
-            opacity: 0.5;
-            animation-duration: 9s;
-            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C150,80 350,40 600,60 C850,80 1050,40 1200,60 L1200,120 L0,120 Z" fill="%23ed1c24" opacity="0.6"/></svg>');
-        }
-
-        @keyframes moverOla {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: rgba(0, 0, 0, 0.55);
         }
 
         .contenedor {
@@ -86,6 +72,7 @@
             text-align: center;
         }
 
+        /* Círculo RC */
         .circulo {
             width: 220px;
             height: 220px;
@@ -98,6 +85,17 @@
             font-size: 48px;
             font-weight: 900;
             color: #002f5f;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            margin-bottom: 25px;
+        }
+
+        /* Imagen principal */
+        .imagen-principal {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid #ffcd00;
+            object-fit: cover;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             margin-bottom: 25px;
         }
@@ -131,36 +129,33 @@
             margin-bottom: 15px;
         }
 
-        .etiquetas {
-            margin-top: 30px;
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .etq {
-            background: rgba(255, 255, 255, 0.18);
-            border: 1px solid rgba(255, 255, 255, 0.35);
-            border-radius: 14px;
-            padding: 12px 18px;
-            backdrop-filter: blur(10px);
-        }
-
         @media (max-width: 600px) {
-            .circulo { width: 180px; height: 180px; font-size: 38px; }
-            h1 { font-size: 40px; }
+            .circulo {
+                width: 180px;
+                height: 180px;
+                font-size: 38px;
+            }
+
+            .imagen-principal {
+                width: 150px;
+                height: 150px;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="fondo"></div>
-    <div class="onda"></div>
-    <div class="onda"></div>
-    <div class="onda"></div>
+    <div class="fondo-playa"></div>
+    <div class="capa-oscura"></div>
 
     <div class="contenedor">
         <div class="circulo">RC</div>
+
+        <img src="https://i.imgur.com/your-radio-studio-image.jpg" class="imagen-principal" alt="Radio Cumanda">
+
         <h1>RADIO CUMANDA</h1>
         <p class="eslogan">Uniendo familias</p>
 
@@ -168,16 +163,8 @@
             <audio controls autoplay preload="none">
                 <source src="https://stream.zeno.fm/yjbulgm54cwtv" type="audio/mpeg">
                 Tu navegador no soporta la reproducción de audio.
-            
-            <p>✅ Transmisión en vivo — Desde Ecuador 🇪🇨</p>
-        </div>
-
-        <div class="etiquetas">
-            <span class="etq">🟡🔴🔵 Ecuador</span>
-            <span class="etq">🌄 Andes</span>
-            <span class="etq">🌊 Costa</span>
-            <span class="etq">🌿 Naturaleza</span>
-            <span class="etq">🎶 Música</span>
+            </audio>
+            <p>✅ Transmisión en vivo</p>
         </div>
     </div>
 </body>
