@@ -14,27 +14,27 @@
             position:relative;
         }
 
-        /* Fondo degradado moderno */
-        .fondo{
+        /* Fondo de playa recuperado */
+        .fondo-playa{
             position:absolute;
             top:0;left:0;
             width:100%;height:100%;
             z-index:-3;
-            background:linear-gradient(135deg,#ff416c,#ff4b2b,#ffd700,#00d4ff,#7b2cbf);
-            background-size:300% 300%;
-            animation:fondoAnimado 12s ease infinite;
+            background-image:url('playa.jpg');
+            background-size:cover;
+            background-position:center;
+            animation:moverFondo 18s ease-in-out infinite alternate;
         }
-        @keyframes fondoAnimado{
-            0%{background-position:0% 50%}
-            50%{background-position:100% 50%}
-            100%{background-position:0% 50%}
+        @keyframes moverFondo{
+            0%{transform:scale(1) translate(0,0)}
+            100%{transform:scale(1.08) translate(10px,8px)}
         }
 
         .sombra{
             position:absolute;
             top:0;left:0;
             width:100%;height:100%;
-            background:rgba(0,0,0,.35);
+            background:rgba(0,0,0,.45);
             z-index:-2;
         }
 
@@ -48,7 +48,7 @@
             text-align:center;
         }
 
-        /* Logo moderno sin círculo blanco */
+        /* Logo RC sin círculo blanco */
         .logo{
             font-size:72px;
             font-weight:900;
@@ -84,17 +84,18 @@
             font-weight:600;
         }
 
-        /* Reproductor moderno con ondas de sonido */
+        /* Reproductor transparente */
         .reproductor{
-            background:linear-gradient(135deg,#ffffff,#f7f7f7);
-            color:#002f5f;
+            background:rgba(0,15,30,.85);
+            color:#ffffff;
             padding:35px;
             border-radius:28px;
             width:100%;
             max-width:520px;
-            box-shadow:0 10px 35px rgba(0,0,0,.4);
+            box-shadow:0 10px 35px rgba(0,0,0,.45);
             position:relative;
             overflow:hidden;
+            border:1px solid rgba(0,180,255,.3);
         }
 
         .reproductor audio{
@@ -104,11 +105,11 @@
         }
 
         .reproductor p{
-            color:#555;
+            color:#ffd700;
             font-size:16px;
         }
 
-        /* Ondas de sonido animadas */
+        /* Ondas de sonido azul marino */
         .ondas{
             position:absolute;
             bottom:0;
@@ -125,7 +126,7 @@
         .onda{
             width:8px;
             height:20px;
-            background:linear-gradient(180deg,#ff416c,#ffd700,#00d4ff);
+            background:linear-gradient(180deg,#0077be,#00d4ff,#0077be);
             border-radius:10px 10px 0 0;
             animation:ondas 1s ease-in-out infinite;
         }
@@ -144,6 +145,18 @@
             100%{height:15px}
         }
 
+        /* Estilo azul marino para controles del reproductor */
+        audio::-webkit-media-controls-panel{
+            background:linear-gradient(135deg,#0077be,#001f3f);
+            color:#fff;
+        }
+
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-volume-slider,
+        audio::-webkit-media-controls-timeline{
+            filter:drop-shadow(0 0 8px rgba(0,212,255,.8));
+        }
+
         @media(max-width:600px){
             .logo{font-size:52px}
             .imagen-estudio{width:150px;height:150px}
@@ -154,7 +167,7 @@
     </style>
 </head>
 <body>
-    <div class="fondo"></div>
+    <div class="fondo-playa"></div>
     <div class="sombra"></div>
 
     <div class="centro">
