@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
     <title>RADIO CUMANDA</title>
     <style>
         * {
@@ -22,7 +20,8 @@
             position: relative;
         }
 
-        .fondo-animado {
+        /* Fondo animado con colores de Ecuador 🟡🔵🔴 */
+        .fondo {
             position: absolute;
             top: 0;
             left: 0;
@@ -38,21 +37,13 @@
         }
 
         @keyframes pulso {
-            0% {
-                transform: scale(1) translate(0, 0);
-                filter: brightness(1);
-            }
-            50% {
-                transform: scale(1.08) translate(-8px, -8px);
-                filter: brightness(1.15);
-            }
-            100% {
-                transform: scale(1.04) translate(8px, 8px);
-                filter: brightness(1);
-            }
+            0% { transform: scale(1) translate(0, 0); filter: brightness(1); }
+            50% { transform: scale(1.08) translate(-8px, -8px); filter: brightness(1.15); }
+            100% { transform: scale(1.04) translate(8px, 8px); filter: brightness(1); }
         }
 
-        .ola {
+        /* Ondas en movimiento */
+        .onda {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -64,14 +55,14 @@
             z-index: -1;
         }
 
-        .ola:nth-child(3) {
+        .onda:nth-child(3) {
             bottom: 30px;
             opacity: 0.6;
             animation-duration: 7s;
             background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C150,0 350,120 600,60 C850,0 1050,120 1200,60 L1200,120 L0,120 Z" fill="%2300aeef" opacity="0.7"/></svg>');
         }
 
-        .ola:nth-child(4) {
+        .onda:nth-child(4) {
             bottom: 60px;
             opacity: 0.5;
             animation-duration: 9s;
@@ -157,23 +148,16 @@
         }
 
         @media (max-width: 600px) {
-            .circulo {
-                width: 180px;
-                height: 180px;
-                font-size: 38px;
-            }
-
-            h1 {
-                font-size: 40px;
-            }
+            .circulo { width: 180px; height: 180px; font-size: 38px; }
+            h1 { font-size: 40px; }
         }
     </style>
 </head>
 <body>
-    <div class="fondo-animado"></div>
-    <div class="ola"></div>
-    <div class="ola"></div>
-    <div class="ola"></div>
+    <div class="fondo"></div>
+    <div class="onda"></div>
+    <div class="onda"></div>
+    <div class="onda"></div>
 
     <div class="contenedor">
         <div class="circulo">RC</div>
@@ -184,8 +168,8 @@
             <audio controls autoplay preload="none">
                 <source src="https://stream.zeno.fm/yjbulgm54cwtv" type="audio/mpeg">
                 Tu navegador no soporta la reproducción de audio.
-            </audio>
-            <p>✅ Transmisión en vivo — Desde Ecuador</p>
+            
+            <p>✅ Transmisión en vivo — Desde Ecuador 🇪🇨</p>
         </div>
 
         <div class="etiquetas">
