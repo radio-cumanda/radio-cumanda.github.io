@@ -5,107 +5,223 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RADIO CUMANDA</title>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{
-            font-family:'Segoe UI',sans-serif;
-            color:#fff;
-            min-height:100vh;
-            overflow:hidden;
-            position:relative;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Fondo en movimiento */
-        .fondo{
-            position:absolute;
-            top:0;left:0;
-            width:100%;height:100%;
-            z-index:-3;
-            background:linear-gradient(135deg,#0077be,#00a86b,#ffd700,#0077be);
-            background-size:400% 400%;
-            animation:fondoMovido 15s ease infinite;
-        }
-        @keyframes fondoMovido{
-            0%{background-position:0% 50%}
-            50%{background-position:100% 50%}
-            100%{background-position:0% 50%}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
         }
 
-        .sombra{
-            position:absolute;
-            top:0;left:0;
-            width:100%;height:100%;
-            background:rgba(0,0,0,.45);
-            z-index:-2;
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(255, 205, 0, 0.9) 0%, transparent 45%),
+                radial-gradient(circle at 90% 15%, rgba(0, 174, 239, 0.9) 0%, transparent 45%),
+                radial-gradient(circle at 50% 85%, rgba(237, 28, 36, 0.7) 0%, transparent 50%),
+                linear-gradient(180deg, #001428 0%, #002f5f 50%, #001a33 100%);
+            animation: backgroundPulse 6s ease-in-out infinite alternate;
         }
 
-        .centro{
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            justify-content:center;
-            min-height:100vh;
-            padding:20px;
-            text-align:center;
+        @keyframes backgroundPulse {
+            0% {
+                transform: scale(1) translate(0, 0);
+                filter: brightness(1);
+            }
+            50% {
+                transform: scale(1.08) translate(-8px, -8px);
+                filter: brightness(1.15);
+            }
+            100% {
+                transform: scale(1.04) translate(8px, 8px);
+                filter: brightness(1);
+            }
         }
 
-        .circulo{
-            width:200px;height:200px;
-            border-radius:50%;
-            background:#fff;
-            border:4px solid #ffd700;
-            color:#002f5f;
-            font-size:60px;
-            font-weight:900;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            margin-bottom:25px;
-            box-shadow:0 8px 25px rgba(0,0,0,.3);
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 220px;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z" fill="%23ffcd00" opacity="0.9"/></svg>');
+            background-size: 50% 100%;
+            animation: waveMove 5s linear infinite;
+            z-index: -1;
         }
 
-        h1{font-size:48px;margin-bottom:10px;text-shadow:0 2px 8px rgba(0,0,0,.5)}
-        .frase{font-size:22px;color:#ffd700;margin-bottom:35px}
-
-        .reproductor{
-            background:#fff;
-            color:#002f5f;
-            padding:30px;
-            border-radius:24px;
-            width:100%;
-            max-width:500px;
-            box-shadow:0 10px 30px rgba(0,0,0,.3);
+        .wave:nth-child(2) {
+            bottom: 30px;
+            opacity: 0.6;
+            animation-duration: 7s;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C150,0 350,120 600,60 C850,0 1050,120 1200,60 L1200,120 L0,120 Z" fill="%2300aeef" opacity="0.7"/></svg>');
         }
-        .reproductor audio{
-            width:100%;
-            margin-bottom:12px;
-            display:block;
-        }
-        .reproductor p{color:#555;font-size:15px}
 
-        @media(max-width:600px){
-            .circulo{width:160px;height:160px;font-size:45px}
-            h1{font-size:32px}
-            .frase{font-size:18px}
-            .reproductor{padding:22px}
+        .wave:nth-child(3) {
+            bottom: 60px;
+            opacity: 0.5;
+            animation-duration: 9s;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C150,80 350,40 600,60 C850,80 1050,40 1200,60 L1200,120 L0,120 Z" fill="%23ed1c24" opacity="0.6"/></svg>');
+        }
+
+        @keyframes waveMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            margin-bottom: 25px;
+            border: 4px solid #ffcd00;
+            font-size: 48px;
+            font-weight: 900;
+            color: #002f5f;
+        }
+
+        h1 {
+            font-size: 52px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        }
+
+        .eslogan {
+            font-size: 22px;
+            font-weight: 300;
+            color: #ffcd00;
+            margin-bottom: 35px;
+            letter-spacing: 1px;
+        }
+
+        .player {
+            background: rgba(255, 255, 255, 0.95);
+            color: #002f5f;
+            width: 100%;
+            max-width: 520px;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+        }
+
+        .player audio {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .player p {
+            font-size: 15px;
+            color: #666;
+        }
+
+        .ecuador-elements {
+            margin-top: 30px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .element {
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.35);
+            border-radius: 14px;
+            padding: 12px 18px;
+            font-size: 15px;
+            backdrop-filter: blur(12px);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 15px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.75);
+        }
+
+        @media (max-width: 600px) {
+            .logo {
+                width: 180px;
+                height: 180px;
+                font-size: 38px;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            .eslogan {
+                font-size: 18px;
+            }
+
+            .player {
+                padding: 22px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="fondo"></div>
-    <div class="sombra"></div>
+    <div class="background"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
 
-    <div class="centro">
-        <div class="circulo">RC</div>
+    <div class="container">
+        <div class="logo">
+            RC
+        </div>
+
         <h1>RADIO CUMANDA</h1>
-        <p class="frase">Uniendo familias</p>
+        <p class="eslogan">Uniendo familias</p>
 
-        <div class="reproductor">
-            <audio controls preload="none">
+        <div class="player">
+            <audio controls autoplay preload="none">
                 <source src="https://stream.zeno.fm/yjbulgm54cwtv" type="audio/mpeg">
                 Tu navegador no soporta la reproducción de audio.
             
-            <p>🔊 Pulsa el botón ▶ para escuchar</p>
+            <p>? Transmisión en vivo — Escúchanos desde Ecuador</p>
+        </div>
+
+        <div class="ecuador-elements">
+            <span class="element">?????? Ecuador</span>
+            <span class="element">?? Andes</span>
+            <span class="element">?? Costa</span>
+            <span class="element">?? Naturaleza</span>
+            <span class="element">?? Música</span>
         </div>
     </div>
+
+    <footer>
+        © <script>document.write(new Date().getFullYear())</script> RADIO CUMANDA · radio-cumanda.github.io
+    </footer>
 </body>
 </html>
